@@ -6,4 +6,4 @@
 
 ### this project is for quick access to the d3.js library and how to use it.
 
- ![Preview][d3BarChart/dist/readme-d3-basics.jpeg]
+# ![Alt text](public/readme-d3-basics.jpeg)
