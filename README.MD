@@ -6,6 +6,4 @@
 
 ### this project is for 
 
- ![Preview][def]
-
-[def]: /dist/readme-d3-basics.jpeg;
+ ![Preview][/readme-d3-basics.jpeg]
