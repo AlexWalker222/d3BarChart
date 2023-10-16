@@ -4,6 +4,6 @@
 
 ## Feel free to take and use this code if needed
 
-# ![Preview][def]
+ ![Preview][def]
 
 [def]: ./readme-d3-basics.jpeg
