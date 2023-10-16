@@ -5,4 +5,4 @@
 # ![Finished project][def]
 
 
-[def]: dist/readme-d3-basics.jpeg
+[def]: ./dist/readme-d3-basics.jpeg
