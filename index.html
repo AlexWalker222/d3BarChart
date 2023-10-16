@@ -5,14 +5,14 @@
     <meta name="description" content="D3 Bar Chart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D3BarChart</title>
-    <script  src="src/barchart.js"></script>
-    <link rel="stylesheet" type="module" href="src/barchart.css" />
+    <link rel="stylesheet" href="public/barchart.css"/>
     <script src="https://d3js.org/d3.v5.min.js"></script>
   </head>
   <body>
+    <script type="module" src="public/barchart.css"></script>
+    <script nomodule src="public/fallback.js"></script>
     <svg id="chart"></svg>
     <div>
       <button type="button" onclick="updateData()">Update</button>
     </div>
   </body>
-</html>
