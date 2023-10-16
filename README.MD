@@ -1,0 +1,8 @@
+# learning the basics of d3 bar-charts for display data and working with the d3.js library
+
+## this is for my reference in future for quick starters and cross checking my code
+
+# ![Finished project][def]
+
+
+[def]: dist/readme-d3-basics.jpeg
