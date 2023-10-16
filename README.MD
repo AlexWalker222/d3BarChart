@@ -6,4 +6,4 @@
 
 # ![Preview][def]
 
-[def]: ./dist/readme-d3-basics.jpeg
+[def]: ./readme-d3-basics.jpeg
