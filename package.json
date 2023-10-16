@@ -1,9 +1,10 @@
 {
   "name": "d3barchart",
-  "private": true,
-  "version": "0.0.0",
+  "private": false,
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "npm run build": "npm run build --production",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
