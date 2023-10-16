@@ -1,5 +1,6 @@
 import * as d3 from 'd3';
 import './barchart.css';
+import { __esModule } from '@babel/core/lib/config/files/package';
 
 // Later these will be adjusted to make room
 // for a vertical and horizontal axis.
@@ -228,4 +229,12 @@ function updateData() {
 // Render the first version of the chart.
 updateData();
 
-export default './barchart.js';
+// do i need to export this function to make this work in build mode for githubpages
+export default function() {
+  updateRect(groups.select("rect")); // Update the position of the rect element.
+  updateData(); // Update the data displayed on the page.
+  updateText(groups.select("text")); // Update the position of the text element.
+  updateYAxis(svg, data, max); // Update the position of the y-axis.
+  updateXAxis(svg, data); // Update the position of the x-axis.
+
+};
