@@ -1,3 +1,6 @@
+import * as d3 from 'd3';
+import './barchart.css';
+
 // Later these will be adjusted to make room
 // for a vertical and horizontal axis.
 const BOTTOM_PADDING = 50;
@@ -224,3 +227,5 @@ function updateData() {
 
 // Render the first version of the chart.
 updateData();
+
+export default './barchart.js';
