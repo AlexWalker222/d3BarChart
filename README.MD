@@ -4,6 +4,6 @@
 
 ## Feel free to take and use this code if needed every function has good comments if your also new to d3.js
 
-### this project is for 
+### this project is for quick access to the d3.js library and how to use it.
 
  ![Preview][d3BarChart/dist/readme-d3-basics.jpeg]
