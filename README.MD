@@ -6,4 +6,4 @@
 
 ### this project is for 
 
- ![Preview][/readme-d3-basics.jpeg]
+ ![Preview][d3BarChart/dist/readme-d3-basics.jpeg]
