@@ -1,0 +1,27 @@
+Body {
+    background-color: getRandomColor();
+    display: inline-flex;
+    height: 100vh;
+    width: fit-content;
+}
+.bar > rect {
+    stroke: black;
+    stroke-width: 1;
+}
+button {
+    margin-top: 1rem;
+}
+#chart {
+    background-color: getRandomColor("");
+}
+.x-axis > .tick > text {
+    /* Translate and rotate labels so they fit below bars better. */
+    -webkit-transform: translate(-8px, 15px) rotate(-45deg);
+    -moz-transform: translate(-8px, 15px) rotate(-45deg);
+    -ms-transform: translate(-8px, 15px) rotate(-45deg);
+    -o-transform: translate(-8px, 15px) rotate(-45deg);
+    transform: translate(-8px, 15px) rotate(-45deg);
+}
+.bar > text {
+    text-anchor: middle;
+}
