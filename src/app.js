@@ -206,7 +206,7 @@ function updateData() {
 
   // Translate the groups for each bar to their
   // appropriate x coordinate based on its index.
-  groups.attr("transform", (_, i) => `translate(${xScale(i)}, 0)`);
+  groups.attr("transform", (__, i) => `translate(${xScale(i)}, 0)`);
 
   // Update all the rect elements using their newly associated data.
   updateRect(groups.select("rect"));

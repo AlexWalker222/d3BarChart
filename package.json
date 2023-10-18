@@ -1,7 +1,7 @@
 {
   "name": "d3barchart",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "npm run build": "npm rebuild, npm run build --production, babel-loader, webpack --config ./webpack.config.js --watch",
@@ -39,9 +39,9 @@
     "json5": "^2.2.3",
     "webpack": "^5.89.0"
   },
-  "description": "",
+  "description": "d3-skeleton",
   "main": "webpack.config.js",
-  "keywords": [],
-  "author": "",
+  "keywords": ["d3-skeleton", "d3barchart", "webpack", "node.js", "babel", "d3"],
+  "author": "Alex Walker",
   "license": "ISC"
 }
