@@ -1,17 +1,22 @@
 const path = require('path');
+
+export const entry =  './src/app.js';
+export const output = {
+  filename: 'app.js',
+  path: __dirname + '/build', 
+  devtool: "source-map",
+};
+export const devtool = 'source-map';
+export const mode = 'production';
+
 module.exports = {
-  mode: 'development',
-  entry: path.join(__dirname, 'app', 'index'),
-  watch: true,
-  output: {
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/dist/',
-    filename: "bundle.js",
-    chunkFilename: '[name].js'
-  },
+  entry,
+  output,
+  devtool,
+  mode,
   module: {
     rules: [{
-      test: /.jsx?$/,
+      test: /\.jsx?$/,
       include: [
         path.resolve(__dirname, 'app')
       ],
@@ -23,7 +28,8 @@ module.exports = {
         presets: [
           ["@babel/env", {
             "targets": {
-              "browsers": "last 2 chrome versions"
+              "browsers": "last 2 microsoft-edge",
+               "browsers": "last 2 chrome versions"
             }
           }]
         ]
@@ -31,13 +37,6 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['.json', '.js', '.jsx']
-  },
-  devtool: 'source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '/dist/'),
-    inline: true,
-    host: 'localhost',
-    port: 8080,
+    extensions: ['.js', '.json']
   }
 };

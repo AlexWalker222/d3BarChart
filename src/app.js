@@ -1,5 +1,3 @@
-// Later these will be adjusted to make room
-// for a vertical and horizontal axis.
 const BOTTOM_PADDING = 50;
 const LEFT_PADDING = 25;
 const RIGHT_PADDING = 10;
@@ -29,7 +27,12 @@ const allData = [
 ];
 
 // Variables for functions
-let barPadding, barWidth, xScale, yScale, yAxisGroup, xAxisGroup;
+let barPadding;
+let barWidth;
+let xScale;
+let yScale;
+let yAxisGroup;
+let xAxisGroup;
 
 // This is used to select bar colors based on their colorIndex.
 const colorScale = d3.scaleOrdinal(d3.schemePaired); // 12 colors
@@ -65,7 +68,7 @@ function updateRect(rect) {
 
 // This updates the yAxis to display the ticks in the
 // correct position when the bar is drawn to the screen.
-function updateYAxis(svg, data, max) {
+function updateYAxis(svg, _data, max) {
   if (!yAxisGroup) {
     // Create an SVG group that will hold the y axis and
     // translate the group to the appropriate position in the SVG.
@@ -99,7 +102,8 @@ function getTextColor(bgColor) {
   const blue = parseInt(bgColor.substring(5, 7), 16);
 
   // Compute the "relative Luminance".
-  const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
+  const luminance =
+    (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
 
   // Use dark text on Light backgrounds and vice versa.
   return luminance > 0.5 ? "black" : "white";
@@ -170,7 +174,10 @@ function updateData() {
 
   // Create a D3 selection object that represents the svg element
   // and set the size of the svg element.
-  const svg = d3.select("#chart").attr("width", WIDTH).attr("height", HEIGHT);
+  const svg = d3
+    .select("#chart")
+    .attr("width", WIDTH)
+    .attr("height", HEIGHT);
 
   // This is the most critical part to understand!
   // You learned about about selections and the general update pattern

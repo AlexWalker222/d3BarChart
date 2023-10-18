@@ -1,10 +1,10 @@
 {
   "name": "d3barchart",
   "private": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
-    "npm run build": "npm rebuild, npm run build --production, babel-loader, webpack",
+    "npm run build": "npm rebuild, npm run build --production, babel-loader, webpack --config ./webpack.config.js --watch",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
@@ -38,5 +38,10 @@
     "es2015": "^0.0.0",
     "json5": "^2.2.3",
     "webpack": "^5.89.0"
-  }
+  },
+  "description": "",
+  "main": "webpack.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
