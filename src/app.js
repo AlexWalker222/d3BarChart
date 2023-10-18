@@ -102,8 +102,7 @@ function getTextColor(bgColor) {
   const blue = parseInt(bgColor.substring(5, 7), 16);
 
   // Compute the "relative Luminance".
-  const luminance =
-    (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
+  const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
 
   // Use dark text on Light backgrounds and vice versa.
   return luminance > 0.5 ? "black" : "white";
@@ -170,7 +169,10 @@ function updateData() {
   // The d3.max function computes the largest data value in a given array
   // where values are computed by the 2nd argument function.
   const max = d3.max(data, (d) => d.score);
-  yScale = d3.scaleLinear().domain([0, max]).range([usableHeight, 0]);
+  yScale = d3
+    .scaleLinear()
+    .domain([0, max])
+    .range([usableHeight, 0]);
 
   // Create a D3 selection object that represents the svg element
   // and set the size of the svg element.
@@ -193,7 +195,10 @@ function updateData() {
       const groups = enter.append("g").attr("class", "bar");
 
       // Create a new SVG rect element for each group.
-      groups.append("rect").attr("height", 0).attr("y", TOP_PADDING + usableHeight);
+      groups
+        .append("rect")
+        .attr("height", 0)
+        .attr("y", TOP_PADDING + usableHeight);
       // Create a new SVG element for each group
       groups.append("text").attr("y", TOP_PADDING + usableHeight);
 
@@ -206,7 +211,7 @@ function updateData() {
 
   // Translate the groups for each bar to their
   // appropriate x coordinate based on its index.
-  groups.attr("transform", (__, i) => `translate(${xScale(i)}, 0)`);
+  groups.attr("transform", (_, i) => `translate(${xScale(i)}, 0)`);
 
   // Update all the rect elements using their newly associated data.
   updateRect(groups.select("rect"));
@@ -222,4 +227,4 @@ function updateData() {
 }
 
 // Render the first version of the chart.
-updateData();
+export function updateData();

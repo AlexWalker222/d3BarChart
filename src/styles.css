@@ -1,9 +1,12 @@
 /* app.css */
 body {
-   display: contents;
+    font-family: sans-serif;
+    font-size: 15px;
+    background-color: linen;
+    display: contents;
 }
 
-.bar > rect {
+.bar>rect {
     stroke: black;
     stroke-width: 1;
 }
@@ -13,11 +16,12 @@ button {
 }
 
 #chart {
-    background-color: linen;
+    background-color: linen opacity;
 }
 
-.x-axis > .tick > text {
-  /* Translate and rotate labels so they fit below bars better. */
+
+.x-axis>.tick>text {
+    /* Translate and rotate labels so they fit below bars better. */
     -webkit-transform: translate(-8px, 15px) rotate(-45deg);
     -moz-transform: translate(-8px, 15px) rotate(-45deg);
     -ms-transform: translate(-8px, 15px) rotate(-45deg);
@@ -26,6 +30,6 @@ button {
     transform: translate(-8px, 15px) rotate(-45deg);
 }
 
-.bar > text {
+.bar>text {
     text-anchor: middle;
 }
