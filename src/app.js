@@ -68,7 +68,7 @@ function updateRect(rect) {
 
 // This updates the yAxis to display the ticks in the
 // correct position when the bar is drawn to the screen.
-function updateYAxis(svg, _data, max) {
+function updateYAxis(svg, data, max) {
   if (!yAxisGroup) {
     // Create an SVG group that will hold the y axis and
     // translate the group to the appropriate position in the SVG.
@@ -193,10 +193,7 @@ function updateData() {
       const groups = enter.append("g").attr("class", "bar");
 
       // Create a new SVG rect element for each group.
-      groups
-        .append("rect")
-        .attr("height", 0)
-        .attr("y", TOP_PADDING + usableHeight);
+      groups.append("rect").attr("height", 0).attr("y", TOP_PADDING + usableHeight);
       // Create a new SVG element for each group
       groups.append("text").attr("y", TOP_PADDING + usableHeight);
 

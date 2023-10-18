@@ -1,28 +1,35 @@
 /* app.css */
-Body {
-    background-color: black;
-    display: inline-flex;
-    height: 100vh;
-    width: fit-content;
+* {
+    background-color: color-mix(in srgb, red 50, blue 50);
+    font-family: sans-serif;
 }
+body {
+   display: contents;
+}
+
 .bar > rect {
     stroke: black;
     stroke-width: 1;
 }
+
 button {
     margin-top: 1rem;
 }
+
 #chart {
     background-color: linen;
 }
+
 .x-axis > .tick > text {
-    /*Translateandrotatelabelssotheyfitbelowbarsbetter.*/-webkit-transform: translate(-8px, 15px) rotate(-45deg);
+  /* Translate and rotate labels so they fit below bars better. */
+    -webkit-transform: translate(-8px, 15px) rotate(-45deg);
     -moz-transform: translate(-8px, 15px) rotate(-45deg);
     -ms-transform: translate(-8px, 15px) rotate(-45deg);
     -o-transform: translate(-8px, 15px) rotate(-45deg);
-    transform: translate(-8px, 15px) rotate(-45deg);
     -webkit-transform: translate(-8px, 15px) rotate(-45deg);
+    transform: translate(-8px, 15px) rotate(-45deg);
 }
+
 .bar > text {
     text-anchor: middle;
 }
