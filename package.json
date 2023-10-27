@@ -13,7 +13,7 @@
   "devDependencies": {
     "@types/babel__core": "^7.20.2",
     "@types/css": "^0.0.34",
-    "@types/d3": "^7.4.1",
+    "@types/d3": "^7.4.2",
     "@types/d3-color": "^3.1.1",
     "@types/d3-interpolate": "^3.0.2",
     "@types/d3-scale": "^4.0.5",
