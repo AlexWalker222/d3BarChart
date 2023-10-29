@@ -6,7 +6,7 @@ body {
     display: contents;
 }
 
-.bar>rect {
+#bar>#rect {
     stroke: black;
     stroke-width: 1;
 }

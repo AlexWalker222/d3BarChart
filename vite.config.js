@@ -1,12 +1,11 @@
-// vite.config.js
-import { defineConfig } from 'vite'
+// @ts-nocheck
+// @vite.config.js
+import * as vite from "vite";
 
-export default defineConfig({
+
+
+export default vite.defineConfig({
   build: {
-    rollupOptions: {
-      external: [
-        /^node:.*/,
-      ]
-    }
-  }
-})
+    packages: "const webpack = require('webpack');",
+  },
+});

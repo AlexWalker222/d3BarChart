@@ -1,42 +1,49 @@
-const path = require('path');
+// @ts-nocheck
+import { webpack, require, module, __dirname } from "webpack";
 
-export const entry =  './src/app.js';
+new webpack.optimize.CommonsChunkPlugin({
+  name: "wp",
+  filename: "file.min.js",
+});
+const path = require("path");
+export const entry = "/index.html";
 export const output = {
-  filename: 'app.js',
-  path: __dirname + '/build', 
+  filename: "app.js",
+  path: __dirname + "/dist",
   devtool: "source-map",
 };
-export const devtool = 'source-map';
-export const mode = 'production';
+export const devtools = "source-map";
+export const mode = "production";
 
 module.exports = {
   entry,
   output,
-  devtool,
+  devtools,
   mode,
   module: {
-    rules: [{
-      test: /\.jsx?$/,
-      include: [
-        path.resolve(__dirname, 'app')
-      ],
-      exclude: [
-        path.resolve(__dirname, 'node_modules')
-      ],
-      loader: 'babel-loader',
-      options: {
-        presets: [
-          ["@babel/env", {
-            "targets": {
-              "browsers": "last 2 microsoft-edge",
-               "browsers": "last 2 chrome versions"
-            }
-          }]
-        ]
-      }
-    }]
+    rules: [
+      {
+        devtool: "source-map",
+        test: /\.js?$/,
+        include: [path.resolve("" + "app")],
+        exclude: [path.resolve("node_modules")],
+        loader: "babel-loader",
+        options: {
+          presets: [
+            [
+              "@babel/env",
+              {
+                targets: {
+                  browsers: "last 2 microsoft-edge",
+                },
+              },
+            ],
+          ],
+        },
+      },
+    ],
   },
   resolve: {
-    extensions: ['.js', '.json']
-  }
+    extensions: [".js", ".json"],
+  },
 };
