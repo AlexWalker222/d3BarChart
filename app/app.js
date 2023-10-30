@@ -1,9 +1,7 @@
 // @ts-nocheck
-// @ts-ignore
-
+// eslint-enable-2015
 import "./styles.css";
-
-export default function App() {
+function App () {
   const BOTTOM_PADDING = 50;
   const LEFT_PADDING = 25;
   const RIGHT_PADDING = 10;
@@ -163,4 +161,4 @@ export default function App() {
   }
 
   updateData();
-}
+};

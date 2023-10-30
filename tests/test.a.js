@@ -1,5 +1,6 @@
 // @ts-nocheck
-import updateData from "app.js";
+// remove.complexity
+import App from "./app/app.js";
 
 describe("updateData", () => {
   test("should create an SVG element with the correct dimensions", () => {
@@ -8,7 +9,7 @@ describe("updateData", () => {
     svg.setAttribute("height", "800");
     document.body.appendChild(svg);
 
-    updateData();
+    App.updateData();
     expect(svg.clientWidth).toBe(400);
     expect(svg.clientHeight).toBe(800);
 
