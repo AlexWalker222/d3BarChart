@@ -1,0 +1,12 @@
+{
+  "Babel.env": {
+    "production": {
+      "value": "production"
+    },
+    "development": {
+      "value": "development"
+    }
+  },
+
+  "presets": []
+}

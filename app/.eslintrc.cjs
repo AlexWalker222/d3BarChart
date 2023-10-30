@@ -1,10 +1,6 @@
 // @ts-nocheck
-import App from "/app/app.js";
-
-
 module.exports = {
   env: {
-    browser: SVGComponentTransferFunctionElement,
     node: true,
     es2015: true,
     es: true,
@@ -12,12 +8,9 @@ module.exports = {
   extends: "eslint:recommended",
   overrides: [
     {
-      env: {
-        node: true,
-      },
-      files: [".eslintrc.{js,cjs}"],
+      files: [".eslintrc.{js, cjs}"],
       parserOptions: {
-        sourceType: "script",
+        sourceType: "script.js",
         sourceTypeOptions: {},
       },
     },
@@ -28,13 +21,5 @@ module.exports = {
   },
   rules: {
     recommended: true,
-    eslint: {
-      Document: {
-        Entry: {
-              App,
-            
-        },
-      },
-    },
   },
 };

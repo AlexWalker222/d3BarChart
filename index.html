@@ -7,12 +7,21 @@
     <title>D3BarChart</title>
     <link type="stylesheet" href="/src/styles.css" />
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="app/babel.config.json"></script>
+    <script src="app/tests/test.a.js"></script>
+    <script src="app/tests/test.b.js"></script>
+    <link src="app/webpack.config.js"></link>
   </head>
-  <body>    
-<script type="module" src="app/app.js"></script>
+  <body>
+    <script type="module" src="app/app.js"></script>
+
     <svg id="chart"></svg>
-      <div>
-        <button type="button" onclick="updateData()"></button>
-      </div>
+    <div>
+      <button type="button" onclick={document.getElementById("updateData()"))}>
+        <text type="btn-text" draggable="true" id="text" class="btn-text"
+          >Update</text
+        >
+      </button>
+    </div>
   </body>
 </html>

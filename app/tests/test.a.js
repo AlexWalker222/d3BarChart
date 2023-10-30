@@ -1,6 +1,6 @@
 // @ts-nocheck
-// remove.complexity
-import App from "./app/app.js";
+import App from "../app.js";
+import { updateData } from "./app/app.js";
 
 describe("updateData", () => {
   test("should create an SVG element with the correct dimensions", () => {

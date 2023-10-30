@@ -4,7 +4,6 @@ export {
         background-color: black;
         display: inline-flex;
         height: 100vh;
-        width: fit-content;
     }
 
     .bar>rect {
@@ -23,17 +22,16 @@ export {
     .x-axis>.tick>text {
         /*Translateandrotatelabelssotheyfitbelowbarsbetter.*/
         -webkit-transform: translate(-8px, 15px) rotate(-45deg);
+        -webkit-transform: translate(-8px, 15px) rotate(-45deg);
         -moz-transform: translate(-8px, 15px) rotate(-45deg);
         -ms-transform: translate(-8px, 15px) rotate(-45deg);
         -o-transform: translate(-8px, 15px) rotate(-45deg);
         transform: translate(-8px, 15px) rotate(-45deg);
-        -webkit-transform: translate(-8px, 15px) rotate(-45deg);
     }
 
     .bar>text {
         text-anchor: middle;
     }
-=======
 body {
     font-family: sans-serif;
     font-size: 15px;
@@ -64,8 +62,7 @@ button {
     -webkit-transform: translate(-8px, 15px) rotate(-45deg);
     transform: translate(-8px, 15px) rotate(-45deg);
 }
-
 .bar>text {
     text-anchor: middle;
->>>>>>> e5af1c276b392cac093acb58d0977d94539d1e7d:app/styles.css
+}
 }

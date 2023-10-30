@@ -1,5 +1,5 @@
 // @ts-nocheck
-import updateData from "./test.a.js";
+import { updateData } from "app/test.a.js";
 
 describe("updateData function", () => {
   test("should create an SVG element with the specified dimensions", () => {

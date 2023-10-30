@@ -1,7 +1,6 @@
 // @ts-nocheck
-// eslint-enable-2015
-import "./styles.css";
-function App () {
+import "../styles.css";
+export default function App() {
   const BOTTOM_PADDING = 50;
   const LEFT_PADDING = 25;
   const RIGHT_PADDING = 10;
@@ -123,13 +122,18 @@ function App () {
   }
 
   function updateData() {
-    let data = getRandomData();
+    const data = getRandomData();
+
     barPadding = Math.ceil(30 / data.length);
+
     barWidth = usableWidth / data.length;
+
     xScale = scaleLinear()
       .domain([0, data.length])
       .range([LEFT_PADDING, LEFT_PADDING + usableWidth]);
+
     var max = max(data, (d) => d.score);
+
     yScale = scaleLinear().domain([0, max]).range([usableHeight, 0]);
 
     const svg = select("#chart").attr("width", WIDTH).attr("height", HEIGHT);
@@ -137,7 +141,7 @@ function App () {
       .selectAll(".bar")
       .data(data, (d) => d.name)
       .join((enter) => {
-        var groups = enter.append("g").attr("class", "bar");
+        const groups = enter.append("g").attr("class", "bar");
         groups
           .append("rect")
           .attr("height", 0)
@@ -147,9 +151,7 @@ function App () {
         return groups;
       });
 
-    groups.attr("transform", (_d, i) => {
-      return "translate(" + xScale(i) + ", 0)";
-    });
+    groups.attr("transform", (i, d) => "translate(" + xScale(i) + ", 0)");
 
     updateRect(groups.select("rect"));
 
@@ -161,4 +163,4 @@ function App () {
   }
 
   updateData();
-};
+}
