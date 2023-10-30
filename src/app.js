@@ -1,18 +1,21 @@
-const BOTTOM_PADDING = 50;
-const LEFT_PADDING = 25;
-const RIGHT_PADDING = 10;
-const TOP_PADDING = 10;
+// @ts-nocheck
+import * as d3 from "d3";
+
+var BOTTOM_PADDING = 50;
+var LEFT_PADDING = 25;
+var RIGHT_PADDING = 10;
+var TOP_PADDING = 10;
 
 // Full size of the svg element.
-const HEIGHT = 800;
-const WIDTH = 400;
+var HEIGHT = 800;
+var WIDTH = 400;
 
 // Size that can be used for the bars.
-const usableHeight = HEIGHT - TOP_PADDING - BOTTOM_PADDING;
-const usableWidth = WIDTH - LEFT_PADDING - RIGHT_PADDING;
+var usableHeight = HEIGHT - TOP_PADDING - BOTTOM_PADDING;
+var usableWidth = WIDTH - LEFT_PADDING - RIGHT_PADDING;
 
 // Random data will be selected from this array.
-const allData = [
+let allData = [
   { name: "apple", colorIndex: 1 },
   { name: "banana", colorIndex: 2 },
   { name: "cherry", colorIndex: 3 },
@@ -27,18 +30,13 @@ const allData = [
 ];
 
 // Variables for functions
-let barPadding;
-let barWidth;
-let xScale;
-let yScale;
-let yAxisGroup;
-let xAxisGroup;
+let barPadding, barWidth, xScale, yScale, yAxisGroup, xAxisGroup;
 
 // This is used to select bar colors based on their colorIndex.
-const colorScale = d3.scaleOrdinal(d3.schemePaired); // 12 colors
+let colorScale = d3.scaleOrdinal(d3.schemePaired); // 12 colors
 
 // This returns a random integer from 1 to max inclusive.
-const random = (max) => Math.floor(Math.random() * max + 1);
+let random = (max) => Math.floor(Math.random() * max + 1);
 
 // This returns an array of objects taken from allData.
 // A "score" property with a random value from 1 to 10
@@ -48,7 +46,7 @@ function getRandomData() {
   const shuffled = allData.sort(() => 0.5 - Math.random());
   const data = shuffled.slice(0, count);
   data.sort((f1, f2) => f1.name.localeCompare(f2.name));
-  for (const item of data) {
+  for (let item of data) {
     item.score = random(10);
   }
   return data;
@@ -57,8 +55,8 @@ function getRandomData() {
 // This updates the attributes of an SVG rect element
 // that represents a bar.
 function updateRect(rect) {
+  // Each fruit will keep the same color as its score changes.
   rect
-    // Each fruit will keep the same color as its score changes.
     .attr("fill", (d) => colorScale(d.colorIndex))
     .attr("width", barWidth - barPadding * 2)
     .attr("height", (d) => usableHeight - yScale(d.score))
@@ -102,8 +100,7 @@ function getTextColor(bgColor) {
   const blue = parseInt(bgColor.substring(5, 7), 16);
 
   // Compute the "relative Luminance".
-  const luminance =
-    (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
+  const luminance = (0.2126 * red + 0.7152 * green + 0.0722 * blue) / 255;
 
   // Use dark text on Light backgrounds and vice versa.
   return luminance > 0.5 ? "black" : "white";
@@ -146,7 +143,7 @@ function updateXAxis(svg, data) {
 
 // This updates the bar chart with random data.
 function updateData() {
-  const data = getRandomData();
+  var data = getRandomData();
 
   // Calculate padding on sides of bars based on # of bars.
   barPadding = Math.ceil(30 / data.length);
@@ -169,20 +166,17 @@ function updateData() {
   // and returns a value in the "range".
   // The d3.max function computes the largest data value in a given array
   // where values are computed by the 2nd argument function.
-  const max = d3.max(data, (d) => d.score);
+  var max = d3.max(data, (d) => d.score);
   yScale = d3.scaleLinear().domain([0, max]).range([usableHeight, 0]);
 
   // Create a D3 selection object that represents the svg element
   // and set the size of the svg element.
-  const svg = d3
-    .select("#chart")
-    .attr("width", WIDTH)
-    .attr("height", HEIGHT);
+  var svg = d3.select("#chart").attr("width", WIDTH).attr("height", HEIGHT);
 
   // This is the most critical part to understand!
   // You learned about about selections and the general update pattern
   // in the previous section.
-  const groups = svg
+  var groups = svg
     .selectAll(".bar")
     .data(data, (d) => d.name)
     .join((enter) => {
@@ -190,7 +184,7 @@ function updateData() {
       // to represent a new bar.
       // For now the only thing in each group will be a rect element,
       // but later we will add a text element to display the value.
-      const groups = enter.append("g").attr("class", "bar");
+      var groups = enter.append("g").attr("class", "bar");
 
       // Create a new SVG rect element for each group.
       groups
@@ -226,3 +220,5 @@ function updateData() {
 
 // Render the first version of the chart.
 updateData();
+
+export default updateData;
