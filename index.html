@@ -5,23 +5,14 @@
     <meta name="description" content="D3BarChart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D3BarChart</title>
-    <link type="stylesheet/text" href="src/styles.css" />
+    <link type="stylesheet" href="/src/styles.css" />
     <script src="https://d3js.org/d3.v5.min.js"></script>
   </head>
-  <body>
-    <script type="d3js" async="false" src="./src/app.js"></script>
+  <body>    
     <svg id="chart"></svg>
-    <div>
-      <button
-        type="button"
-        onclick="{try {
-         updateData()
-      } catch (error) {
-        
-      }}"
-      >
-        update
-      </button>
-    </div>
+      <div>
+        <button type="button" onclick="updateData()">updateData</button>
+      </div>
+    <script type="module" src="/src/app.js"></script>
   </body>
 </html>
