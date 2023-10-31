@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
   <head>
     <meta charset="utf-8" />
-    <meta name="description" content="D3 Bar Chart" />
+    <meta name="description" content="D3BarChart" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>D3-Mastering-Basics-Bar-Chart</title>
-    <link rel="stylesheet" href="./bar-chart.css" />
+    <title>D3BarChart</title>
+    <link type="stylesheet" href="/src/styles.css" />
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="./bar-chart.js" defer></script>
+    <script src="app/babel.config.json"></script>
+    <script src="app/tests/test.a.js"></script>
+    <script src="app/tests/test.b.js"></script>
+    <link src="app/webpack.config.js"></link>
   </head>
   <body>
+    <script type="module" src="app/app.js"></script>
+
     <svg id="chart"></svg>
     <div>
-      <button type="button" onclick="updateData()">Update</button>
+      <button type="button" onclick={document.getElementById("updateData()"))}>
+        <text type="btn-text" draggable="true" id="text" class="btn-text"
+          >Update</text
+        >
+      </button>
     </div>
   </body>
 </html>
