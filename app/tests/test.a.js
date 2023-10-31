@@ -1,15 +1,13 @@
 // @ts-nocheck
-import App from "../app.js";
-import { updateData } from "./app/app.js";
 
 describe("updateData", () => {
   test("should create an SVG element with the correct dimensions", () => {
-    const svg = document.create("svg");
+    const svg = document.createElement("svg");
     svg.setAttribute("width", "400");
     svg.setAttribute("height", "800");
     document.body.appendChild(svg);
 
-    App.updateData();
+    updateData();
     expect(svg.clientWidth).toBe(400);
     expect(svg.clientHeight).toBe(800);
 
@@ -44,6 +42,7 @@ describe("updateData", () => {
 
     document.body.removeChild(svg);
   });
+
   test("should create a group element for each bar", () => {
     const svg = document.createElement("svg");
     svg.setAttribute("width", "400");
