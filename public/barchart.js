@@ -1,6 +1,5 @@
-import * as d3 from 'd3';
-import './barchart.css';
-import { __esModule } from '@babel/core/lib/config/files/package';
+// @ts-nocheck
+import { scaleOrdinal, schemePaired, axisLeft, scaleBand, axisBottom, scaleLinear, max as _max, select } from 'd3';
 
 // Later these will be adjusted to make room
 // for a vertical and horizontal axis.
@@ -41,7 +40,7 @@ let yAxisGroup;
 let xAxisGroup;
 
 // This is used to select bar colors based on their colorIndex.
-const colorScale = d3.scaleOrdinal(d3.schemePaired); // 12 colors
+const colorScale = scaleOrdinal(schemePaired); // 12 colors
 
 // This returns a random integer from 1 to max inclusive.
 const random = (max) => Math.floor(Math.random() * max + 1);
@@ -89,8 +88,7 @@ function updateYAxis(svg, data, max) {
   const tickValues = Array.from(Array(max + 1).keys());
 
   // Create an axis generator function that renders the yAxis.
-  const yAxis = d3
-    .axisLeft(yScale)
+  const yAxis = axisLeft(yScale)
     .tickValues(tickValues)
     .tickFormat((n) => n.toFixed(0));
 
@@ -139,13 +137,12 @@ function updateXAxis(svg, data) {
   // translate the group to the appropriate position in the SVG.
 
   // Create a scale that maps fruit names to positions on x axis.
-  const xAxisScale = d3
-    .scaleBand()
+  const xAxisScale = scaleBand()
     .domain(data.map((item) => item.name)) // fruit names
     .range([LEFT_PADDING, LEFT_PADDING + usableWidth]);
 
   // Create and call an axis generator function that renders the xAxis.
-  const xAxis = d3.axisBottom(xAxisScale).ticks(data.length);
+  const xAxis = axisBottom(xAxisScale).ticks(data.length);
   xAxis(xAxisGroup);
 }
 
@@ -162,8 +159,7 @@ function updateData() {
   // Create a scale to map data index values to x coordinates.
   // This is a function that takes a value in the "domain"
   // and returns a value in the "range".
-  xScale = d3
-    .scaleLinear()
+  xScale = scaleLinear()
     .domain([0, data.length])
     .range([LEFT_PADDING, LEFT_PADDING + usableWidth]);
 
@@ -174,12 +170,12 @@ function updateData() {
   // and returns a value in the "range".
   // The d3.max function computes the largest data value in a given array
   // where values are computed by the 2nd argument function.
-  const max = d3.max(data, (d) => d.score);
-  yScale = d3.scaleLinear().domain([0, max]).range([usableHeight, 0]);
+  const max = _max(data, (d) => d.score);
+  yScale = scaleLinear().domain([0, max]).range([usableHeight, 0]);
 
   // Create a D3 selection object that represents the svg element
   // and set the size of the svg element.
-  const svg = d3.select("#chart").attr("width", WIDTH).attr("height", HEIGHT);
+  const svg = select("#chart").attr("width", WIDTH).attr("height", HEIGHT);
 
   // This is the most critical part to understand!
   // You learned about about selections and the general update pattern
@@ -228,13 +224,3 @@ function updateData() {
 
 // Render the first version of the chart.
 updateData();
-
-// do i need to export this function to make this work in build mode for githubpages
-export default function() {
-  updateRect(groups.select("rect")); // Update the position of the rect element.
-  updateData(); // Update the data displayed on the page.
-  updateText(groups.select("text")); // Update the position of the text element.
-  updateYAxis(svg, data, max); // Update the position of the y-axis.
-  updateXAxis(svg, data); // Update the position of the x-axis.
-
-};
